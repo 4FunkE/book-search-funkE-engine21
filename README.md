@@ -5,10 +5,10 @@
 
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+- What was your motivation? modern websites are driven by two things: data and user demands.
+- Why did you build this project? take a fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server.
+- What problem does it solve? personalize user data is the cornerstone of real-world web development today. 
+- What did you learn? using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API.
 
 ## Table of Contents
 
