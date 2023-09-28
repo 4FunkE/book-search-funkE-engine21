@@ -79,9 +79,19 @@ const resolvers = {
         throw new Error('An error occurred during login');
       }
     },
-      logoutUser: () => {
-        // Implement a function to log out the user.
-        // Set the loggedInUser variable to null to indicate that the user is logged out.
+      logoutUser: (_, __, context) => {
+        // Check if the user is logged in (authenticated)
+        if (!context.user) {
+          throw new AuthenticationError('Not logged in');
+        }
+
+        try {
+          context.user = null;
+      
+          return 'Logout successful';
+        } catch (error) {
+          throw new Error(`Error during logout: ${error.message}`);
+        }
       },
       saveBook: (_, { bookId }) => {
         // Implement a function to save a book to the user's account.
