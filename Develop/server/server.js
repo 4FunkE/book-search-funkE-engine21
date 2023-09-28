@@ -22,8 +22,8 @@ if (process.env.NODE_ENV === 'production') {
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
-  await server.start();
-  server.applyMiddleware({ app });
+  await server.start(); //need for apollo 3
+  server.applyMiddleware({ app }); //need for apollo 3
 
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
