@@ -87,7 +87,7 @@ By following these steps, you'll be able to seamlessly navigate and utilize our 
 [GitHub Repository](https://github.com/4FunkE/book-search-funkE-engine21)
 
 ## Screenshot
-![image](./public/image/Student-mark-image.png)
+![image](./Develop/Screenshot%202023-09-28%20003854.png)
 
 This project was developed using the following technologies and tools:
 
