@@ -14,21 +14,24 @@ import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  // useState to set the user data
-  const [userData, setUserData] = useState(null);
 
   const { loading, data } = useQuery(GET_ME);
-
   // array REMOVE_BOOK to obtain the mutation to remove
   const [removeBook] = useMutation(REMOVE_BOOK);
+  const userData = data?.me || {};
 
   // Loading
   if (loading) {
     return <h2>LOADING...</h2>;
   }
 
-  if (!userData && data) {
-    setUserData(data.me);
+  // Debugging: Output the userData object and savedBooks array
+  console.log('userData:', userData);
+  console.log('savedBooks:', userData.savedBooks);
+
+
+  if (!userData?.username) {
+    return <h4>You need to be logged in to see this page!</h4>;
   }
 
   // create function that accepts the book's _id value as param and deletes the book from the database
@@ -40,20 +43,18 @@ const SavedBooks = () => {
     }
 
     try {
+      console.log('Deleting book with ID:', bookId);
+  
       const { data } = await removeBook({
         variables: { bookId },
       });
-
-      // Get the updated user data after the book is removed
-      const updatedUser = data.removeBook;
-
-      // Update the userData state
-      setUserData(updatedUser);
-
+  
+      console.log('Delete book response:', data);
+  
       // Upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
-      console.error(err);
+      console.error('Error deleting book:', err);
     }
   };
 
@@ -66,9 +67,9 @@ const SavedBooks = () => {
       </div>
       <Container>
         <h2 className='pt-5'>
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
-            : 'You have no saved books!'}
+        {userData.savedBooks && userData.savedBooks.length
+          ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
+          : 'You have no saved books!'}
         </h2>
         <Row>
           {userData.savedBooks.map((book) => {
