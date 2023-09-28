@@ -87,25 +87,25 @@ const resolvers = {
         // Implement a function to save a book to the user's account.
         // Add the book to the user's list of saved books.
       },
-      removeBook: async (_, { bookId }) => {
-        // check if authenticated
+      removeBook: async (_, { bookId }, context) => {
+        // Check if authenticated
         if (!context.user) {
           throw new AuthenticationError('Not logged in');
-      }
-
-      try {
-          // find by id
-          const deletedWorkout = await Workout.findByIdAndRemove(args.id);
-
-          if (!deletedWorkout) {
-              throw new Error('Workout not found or cannot be deleted');
+        }
+      
+        try {
+          // Find the book by its ID and remove it
+          const deletedBook = await Book.findByIdAndRemove(bookId);
+      
+          if (!deletedBook) {
+            throw new Error('Book not found or cannot be deleted');
           }
-
-          return deletedWorkout;
-      } catch (error) {
-          throw new Error('Error deleting workout: ${error.message');
-      }
-    },
+      
+          return deletedBook;
+        } catch (error) {
+          throw new Error(`Error deleting book: ${error.message}`);
+        }
+      },
   };
 
 module.exports = resolvers;
