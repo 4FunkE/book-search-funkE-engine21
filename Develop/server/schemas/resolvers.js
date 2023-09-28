@@ -4,19 +4,61 @@ const { User } = require('./models'); // Import your User model
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('./auth'); // Import a function to sign tokens
 
+const axios = require('axios'); // You may need to install axios
+
+const GOOGLE_BOOKS_API_URL = 'https://www.googleapis.com/books/v1/volumes';
+
 const books = []; // data structure to store saved books.
 let loggedInUser = null; // Store the logged-in user's information.
 
 
 const resolvers = {
     Query: {
-      searchBooks: (_, { query }) => {
-        // Implement a function to search for books based on the query and return the search results.
-        // You can use external APIs like the Google Books API to fetch book data.
+      searchBooks: async (_, { query }) => {
+        try {
+          // Request to the Google Books API to search for books
+          const response = await axios.get(GOOGLE_BOOKS_API_URL, {
+            params: {
+              q: query, // The search query passed from the GraphQL query
+            },
+          });
+    
+          // Extract relevant data from the response
+          const books = response.data.items.map((item) => {
+            const bookInfo = item.volumeInfo;
+            return {
+              title: bookInfo.title,
+              author: bookInfo.authors ? bookInfo.authors.join(', ') : 'Unknown',
+              description: bookInfo.description,
+              image: bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : null,
+              link: bookInfo.infoLink,
+            };
+          });
+    
+          return books;
+        } catch (error) {
+          throw new Error(`Error searching for books: ${error.message}`);
+        }
       },
-      savedBooks: () => {
-        // Implement a function to retrieve the saved books for the logged-in user.
-        // Return the list of saved books.
+      savedBooks: async (_, __, context) => {
+        // Check if the user is logged in (authenticated)
+        if (!context.user) {
+          throw new AuthenticationError('Not logged in');
+        }
+    
+        try {
+          // Fetch the user's saved books from your database
+          const user = await User.findById(context.user.id);
+    
+          if (!user) {
+            throw new Error('User not found');
+          }
+    
+          // Return the list of saved books
+          return user.savedBooks;
+        } catch (error) {
+          throw new Error(`Error fetching saved books: ${error.message}`);
+        }
       },
     },
     Mutation: {
