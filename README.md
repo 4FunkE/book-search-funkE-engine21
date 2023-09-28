@@ -1,14 +1,25 @@
-# book-search-funkE-engine21
-# Your-Project-Title
+# Book Search funkE-engine21
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+**Motivation:** In the modern web development landscape, data and user demands drive the development of websites and applications. To address this, we embarked on a project to enhance a Google Books search engine by transitioning it from a RESTful API to a GraphQL API built with Apollo Server.
 
-- What was your motivation? modern websites are driven by two things: data and user demands.
-- Why did you build this project? take a fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server.
-- What problem does it solve? personalize user data is the cornerstone of real-world web development today. 
-- What did you learn? using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API.
+**Purpose:** Our primary goal was to transform an existing Google Books API search engine into a more flexible and efficient solution using GraphQL. This shift enables us to provide a personalized user experience, aligning with the current trends in web development.
+
+### Key Features
+
+- Refactoring a RESTful API into a GraphQL API.
+- Utilizing the MERN stack (MongoDB, Express.js, React, Node.js) for a robust and scalable architecture.
+- Implementing Apollo Server to facilitate GraphQL functionality.
+- Enhancing user data personalization, a vital component of modern web development.
+
+### Problem Solved
+
+By transitioning to GraphQL, we solve the challenge of efficiently managing and delivering data to meet specific user demands. This transition not only optimizes data retrieval but also empowers users with personalized content and search capabilities.
+
+### What We Learned
+
+Throughout this project, we gained valuable insights into the MERN stack, GraphQL, Apollo Server, and the process of migrating from a RESTful API to a GraphQL API. We deepened our understanding of how to create a responsive and data-driven web application while staying up-to-date with industry best practices.
 
 ## Table of Contents
 
@@ -27,11 +38,11 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Follow these steps to install and set up the project in your development environment:
 
-1. **Clone the Repository from GitHub:** Alternatively, you can download the ZIP folder from the repository's GitHub page.
+1. **Clone the Repository:** You can either clone the repository from GitHub or download the ZIP folder from the repository's GitHub page.
 ```bash
-git clone https://github.com/4funke/Employees-of-funk.co.git
+git clone https://github.com/4FunkE/book-search-funkE-engine21.git
 ```
 2. **Open the Repository in a Source Code Editor:**
 Open your preferred source code editor (e.g., Visual Studio Code, Sublime Text) and navigate to the cloned repository's directory.
@@ -42,58 +53,71 @@ Open your preferred source code editor (e.g., Visual Studio Code, Sublime Text) 
 
 ## Usage Instruction: 
 #### Follow these steps to effectively utilize our application:
-Provide instructions and examples for use.
 
-1. Visit the deployed application's homepage and login or sign up for an account.
-2. Choose a teacher from the dropdown menu and rate them using the apple scale.
-3. Write a comment about the teacher's performance.
-4. Click the "Post" button to submit your comment and rating.
-5. To review your contributions, click on "Profile." Don't forget to log out when you're done!
+1. **Visit the Deployed Application's Homepage:**
 
-By following these steps, you'll be seamlessly...
+   Go to the deployed application's homepage and either log in with your existing account or sign up for a new one.
+
+2. **Search for a Book:**
+
+   In the search bar, enter the title or author of the book you want to find. Click the "Search" button to see the search results.
+
+3. **Add Books to Your Profile:**
+
+   When you find a book you like, click the "Add to Profile" button. This will save the book to your profile for later reference.
+
+4. **Remove Books from Your Profile:**
+
+   To remove a book from your profile, go to your profile page and click the "Remove" button next to the book you want to delete.
+
+5. **Review Your Contributions:**
+
+   To view the books you've added to your profile and manage them, click on "Profile" in the navigation menu.
+
+6. **Log Out:**
+
+   Don't forget to log out when you're finished using the application! Click "Log Out" in the navigation menu to securely end your session.
+
+By following these steps, you'll be able to seamlessly navigate and utilize our application to search for, add, and manage books in your profile.
 
 ## Deployed Application Link:
-[Deployed Application Link](...)
+[Deployed Application Link](https://booksearchfunke-e8b80e9438d7.herokuapp.com/)
 
 ## GitHub Repository:
-[GitHub Repository](...)
+[GitHub Repository](https://github.com/4FunkE/book-search-funkE-engine21)
 
 ## Screenshot
 ![image](./public/image/Student-mark-image.png)
 
-## Built With:
 This project was developed using the following technologies and tools:
-- [JSON](https://www.npmjs.com/package/json)
-- [Node.js](https://nodejs.org/en/blog/release/v16.18.1/)
-- [Dotenv](https://www.npmjs.com/package/dotenv)
-- [Express](https://www.npmjs.com/package/express)
-- [Node MySql2](https://www.npmjs.com/package/mysql2)
-- [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Bcrypt](https://www.npmjs.com/package/bcrypt)
-- [Sequelize](https://www.npmjs.com/package/connect-session-sequelize)
-- [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
-- [Express-Session](https://www.npmjs.com/package/express-session)
+
+- [JSON](https://www.npmjs.com/package/json): Used for data representation and exchange.
+- [Node.js](https://nodejs.org/en/blog/release/v16.18.1/): The runtime environment for executing JavaScript code on the server.
+- [Dotenv](https://www.npmjs.com/package/dotenv): Enables the usage of environment variables to manage configuration.
+- [Express](https://www.npmjs.com/package/express): A fast and minimal web application framework for Node.js.
+- [Node MySql2](https://www.npmjs.com/package/mysql2): A MySQL driver for Node.js.
+- [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4): Facilitates user interactions in the command-line interface.
+- [Visual Studio Code](https://code.visualstudio.com/): The integrated development environment used for coding.
+- [Sequelize](https://www.npmjs.com/package/connect-session-sequelize): Sequelize is a promise-based Node.js ORM for PostgreSQL, MySQL, MariaDB, SQLite, and Microsoft SQL Server.
+- [Bcrypt](https://www.npmjs.com/package/bcrypt): Bcrypt is a library used for hashing passwords securely.
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars): Express Handlebars is a view engine for Express.js, enabling dynamic rendering of HTML templates.
+- [Express-Session](https://www.npmjs.com/package/express-session): Express-Session is a middleware for managing user sessions in Express applications.
+
 ### Technologies and Tools Overview
-- JSON: Used for data representation and exchange.
-- Node.js: The runtime environment for executing JavaScript code on the server.
-- Dotenv:  Enables the usage of environment variables to manage configuration.
-- Express: A fast and minimal web application framework for Node.js.
-- Node MySql2: A MySQL driver for Node.js.
-- Inquirer: Facilitates user interactions in the command-line interface.
-- Visual Studio Code: The integrated development environment used for coding.
-- Sequelize: Connect Session Store
-- Bcrypt:
-- Express Handlebars:
-- Express-session:
+
+- **JSON:** Used for data representation and exchange.
+- **Node.js:** The runtime environment for executing JavaScript code on the server.
+- **Dotenv:** Enables the usage of environment variables to manage configuration.
+- **Express:** A fast and minimal web application framework for Node.js.
+- **Node MySql2:** A MySQL driver for Node.js.
+- **Inquirer:** Facilitates user interactions in the command-line interface.
+- **Visual Studio Code:** The integrated development environment used for coding.
+- **Sequelize:** Sequelize is a promise-based Node.js ORM for PostgreSQL, MySQL, MariaDB, SQLite, and Microsoft SQL Server.
+- **Bcrypt:** Bcrypt is a library used for hashing passwords securely.
+- **Express Handlebars:** Express Handlebars is a view engine for Express.js, enabling dynamic rendering of HTML templates.
+- **Express-Session:** Express-Session is a middleware for managing user sessions in Express applications.
 
 ## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
 
 Collaborators: 
 - AskBCS Learning Assistants
@@ -105,27 +129,29 @@ Collaborators:
 
 This application is covered under the MIT license. [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
-
 ## Badges
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
 ## Features
 
-If your project has a lot of features, list them here. Communicate the capabilities of your project. Here's a guide you can use to structure your features section:
+User Authentication:
+Users can create accounts (sign up) or log in with existing accounts.
 
-- **Feature Name:** 
-  - Description: A brief description of what this feature accomplishes.
-  - Usage Instructions: How users can interact with this feature.
-  - Example (if applicable): A simple example of how the feature works.
-- **Feature Name:** 
-  - Description: A brief description of what this feature accomplishes.
-  - Usage Instructions: How users can interact with this feature.
-  - Example (if applicable): A simple example of how the feature works.
+Book Search:
+Users can search for books using a search bar.
+
+Book Adding:
+Users can add books to their profiles.
+
+Book Removal:
+Users can remove books from their profiles.
+
+User Profile:
+Users can view their contributions (e.g., added books) and ratings.
+
+User Logout:
+Users can log out when they are done using the application.
 
 ## How to Contribute
 
@@ -138,7 +164,7 @@ To contribute to our project, follow these steps:
 1. Fork the Repository: Fork our repository to your own GitHub account by clicking the "Fork" button.
 2. Clone the Repository: Clone the forked repository to your local machine using:
 ```bash
-git clone https://github.com/4funke/Employees-of-funk.co.git 
+git clone https://github.com/4FunkE/book-search-funkE-engine21.git 
 ```
 3. Create a New Branch: Create a new branch to work on your contribution using:
 ```bash
@@ -163,18 +189,7 @@ If you're unsure about where to start or need assistance at any point, feel free
 
 ## Tests
 
-We have implemented a comprehensive testing suite to ensure the stability and functionality of our application. Our testing includes unit tests, integration tests, and end-to-end tests to cover various scenarios. To run the tests, follow these steps:
-
-1. Ensure you have all dependencies installed by running:
-```bash
-npm i 
-```
-2. Run the tests using the following command:
-```bash
-npm test 
-```
-
-Our testing suite provides confidence in the quality of our code and ensures that any changes made to the codebase don't introduce regressions.
+n/a
 
 ## Questions
 If you have any questions or need further assistance, feel free to reach out. You can contact me through my [GitHub profile](https://github.com/4FunkE) or via email at 4funkecodes@gmail.com. I'm here to help and support you in any way I can. Have a funke day!
