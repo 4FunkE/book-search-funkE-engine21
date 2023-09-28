@@ -93,9 +93,37 @@ const resolvers = {
           throw new Error(`Error during logout: ${error.message}`);
         }
       },
-      saveBook: (_, { bookId }) => {
-        // Implement a function to save a book to the user's account.
-        // Add the book to the user's list of saved books.
+      saveBook: async (_, { bookId }, context) => {
+        // Check if the user is logged in (authenticated)
+        if (!context.user) {
+          throw new AuthenticationError('Not logged in');
+        }
+      
+        try {
+          // Find the user in your database (replace 'User' with your actual model)
+          const user = await User.findById(context.user.id);
+      
+          if (!user) {
+            throw new Error('User not found');
+          }
+      
+          // Check if the book is already saved by the user (optional)
+          const alreadySaved = user.savedBooks.some((savedBook) => savedBook === bookId);
+      
+          if (alreadySaved) {
+            throw new Error('Book is already saved');
+          }
+      
+          // Add the book to the user's list of saved books
+          user.savedBooks.push(bookId);
+      
+          // Save the user (update their savedBooks array)
+          await user.save();
+      
+          return 'Book saved successfully';
+        } catch (error) {
+          throw new Error(`Error saving book: ${error.message}`);
+        }
       },
       removeBook: async (_, { bookId }, context) => {
         // Check if authenticated
