@@ -14,25 +14,24 @@ import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  // Use the useState Hook to set the user data
+  // useState to set the user data
   const [userData, setUserData] = useState(null);
 
-  const { loading, data } = useQuery(GET_ME); // Execute the GET_ME query and store the result in data
+  const { loading, data } = useQuery(GET_ME);
 
-  // Execute the REMOVE_BOOK mutation and obtain the mutation function
+  // array REMOVE_BOOK to obtain the mutation to remove
   const [removeBook] = useMutation(REMOVE_BOOK);
 
-  // if data isn't here yet, say so
+  // Loading
   if (loading) {
     return <h2>LOADING...</h2>;
   }
 
-  // Update the userData state with the data from the query
   if (!userData && data) {
     setUserData(data.me);
   }
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+  // create function that accepts the book's _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
