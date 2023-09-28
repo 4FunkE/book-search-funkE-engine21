@@ -1,7 +1,7 @@
 // Import necessary dependencies for implementing the resolvers
-const { User } = require('./models'); // Import your User model
+const { User } = require('../models/User'); // Import your User model
 const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('./auth'); // Import a function to sign tokens
+const { signToken } = require('../utils/auth'); // Import a function to sign tokens
 
 const axios = require('axios');
 const GOOGLE_BOOKS_API_URL = 'https://www.googleapis.com/books/v1/volumes';

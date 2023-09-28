@@ -4,7 +4,6 @@ const typeDefs = require('./schemas/typeDefs');
 const resolvers = require('./schemas/resolvers');
 const path = require('path');
 const db = require('./config/connection');
-const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -26,7 +25,7 @@ const startApolloServer = async () => {
   server.applyMiddleware({ app }); //need for apollo 3
 
 db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`🌍 Now listening on http://localhost:${PORT}`));
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 })
 };
