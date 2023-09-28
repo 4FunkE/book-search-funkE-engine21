@@ -4,13 +4,8 @@ const { User } = require('./models'); // Import your User model
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('./auth'); // Import a function to sign tokens
 
-const axios = require('axios'); // You may need to install axios
-
+const axios = require('axios');
 const GOOGLE_BOOKS_API_URL = 'https://www.googleapis.com/books/v1/volumes';
-
-const books = []; // data structure to store saved books.
-let loggedInUser = null; // Store the logged-in user's information.
-
 
 const resolvers = {
     Query: {
